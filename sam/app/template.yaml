@@ -254,7 +254,6 @@ Resources:
                 Configuration:
                   ActionMode: CHANGE_SET_REPLACE
                   Capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
-                  ParameterOverrides: !Ref DeployParameterOverrides
                   RoleArn: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${DeployRoleName}
                   StackName: !Ref DeployStackName
                   TemplatePath: "BuildArtifact::packaged-template.yaml"
@@ -267,10 +266,6 @@ Resources:
                   Provider: CloudFormation
                   Version: '1'
                 Configuration:
-                  Owner: !Ref GitHubOwner
-                  OAuthToken: !Ref GitHubOAuthToken
-                  Repo: !Ref GitHubRepo
-                  Branch: !Ref GitHubBranch
                   ActionMode: CHANGE_SET_EXECUTE
                   Capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
                   StackName: !Ref DeployStackName
