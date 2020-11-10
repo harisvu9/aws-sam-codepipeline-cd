@@ -268,7 +268,7 @@ Resources:
                   Version: '1'
                 Configuration:
                   ActionMode: CHANGE_SET_EXECUTE
-                  Capabilities: CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND
+                  Capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
                   StackName: !Ref DeployStackName
                   ChangeSetName: !Sub a-${DeployStackName}-Deploy
                 RunOrder: 2
