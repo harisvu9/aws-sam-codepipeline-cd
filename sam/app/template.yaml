@@ -78,7 +78,7 @@ Parameters:
   DeployParameterOverrides:
     Description: Parameter overrides for the deploy stage
     Type: String
-    Default: '{"GitHubOwner": "harisvu9","GitHubRepo": "aws-sam-codepipeline-cd","GitHubOAuthToken": "3cdd2b8a5d4bf6a6d20ea9216d8c655c392662bb"}'
+    Default: '{"GitHubOwner": "harisvu9","GitHubRepo": "aws-sam-codepipeline-cd","GitHubOAuthToken": 3cdd2b8a5d4bf6a6d20ea9216d8c655c392662bb}'
   DeployStackName:
     Description: The stack name for the deploy stage
     Type: String
