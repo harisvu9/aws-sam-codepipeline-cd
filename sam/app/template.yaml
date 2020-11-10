@@ -78,7 +78,7 @@ Parameters:
   DeployParameterOverrides:
     Description: Parameter overrides for the deploy stage
     Type: String
-    Default: '{"GitHubOwner": "harisvu9","GitHubRepo": "aws-sam-codepipeline-cd","GitHubOAuthToken": 3cdd2b8a5d4bf6a6d20ea9216d8c655c392662bb}'
+    Default: '{}'
   DeployStackName:
     Description: The stack name for the deploy stage
     Type: String
@@ -268,8 +268,7 @@ Resources:
                   Version: '1'
                 Configuration:
                   ActionMode: CHANGE_SET_EXECUTE
-                  Capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
-                  ParameterOverrides: !Ref DeployParameterOverrides
+                  Capabilities: CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND
                   StackName: !Ref DeployStackName
                   ChangeSetName: !Sub a-${DeployStackName}-Deploy
                 RunOrder: 2
