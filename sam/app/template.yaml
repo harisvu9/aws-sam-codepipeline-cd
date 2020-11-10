@@ -269,6 +269,7 @@ Resources:
                 Configuration:
                   ActionMode: CHANGE_SET_EXECUTE
                   Capabilities: CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
+                  ParameterOverrides: {"GitHubBranch": "master","GitHubOwner": "harisvu9","GitHubRepo": "aws-sam-codepipeline-cd"}
                   StackName: !Ref DeployStackName
                   ChangeSetName: !Sub a-${DeployStackName}-Deploy
                 RunOrder: 2
