@@ -75,10 +75,10 @@ Parameters:
     Type: String
     Description: CodeCommit repository branch name, only specify if you chose CodeCommit in SourceCodeProvider.
     Default: master
-  # DeployParameterOverrides:
-  #   Description: Parameter overrides for the deploy stage
-  #   Type: String
-  #   Default: '{}'
+  DeployParameterOverrides:
+    Description: Parameter overrides for the deploy stage
+    Type: String
+    Default: '{}'
   DeployStackName:
     Description: The stack name for the deploy stage
     Type: String
@@ -253,8 +253,8 @@ Resources:
                   - Name: BuildArtifact
                 Configuration:
                   ActionMode: CHANGE_SET_REPLACE
-                  Capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
-                  ParameterOverrides: '{"GitHubOwner": "harisvu9","GitHubRepo": "aws-sam-codepipeline-cd","GitHubOAuthToken": "89606d133d120d8710c963a06c87e9b1f2bd911f"}'
+                  Capabilities: CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND
+                  ParameterOverrides: !Ref DeployParameterOverrides
                   RoleArn: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${DeployRoleName}
                   StackName: !Ref DeployStackName
                   TemplatePath: "BuildArtifact::packaged-template.yaml"
@@ -268,7 +268,6 @@ Resources:
                   Version: '1'
                 Configuration:
                   ActionMode: CHANGE_SET_EXECUTE
-                  Capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
                   StackName: !Ref DeployStackName
                   ChangeSetName: !Sub a-${DeployStackName}-Deploy
                 RunOrder: 2
